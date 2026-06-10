@@ -8,12 +8,13 @@ export default function Navbar() {
           href="/"
           className="font-bold text-xl"
         >
-          MonSite
+          Agnès Scotto Di Perta
         </Link>
 
         <div className="flex gap-6">
           <Link href="/">Accueil</Link>
           <Link href="/galerie">Galerie</Link>
+          <Link href="/evenements">Événements</Link>
         </div>
       </nav>
     </header>
