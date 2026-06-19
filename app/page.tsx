@@ -26,10 +26,6 @@ export default function HomePage() {
       <section className="max-w-7xl mx-auto px-6 py-20">
         <div className="grid md:grid-cols-2 gap-10 items-center">
           <div>
-            <h2 className="text-3xl font-bold mb-6">
-              Lorem Ipsum
-            </h2>
-
             <p className="text-gray-600 leading-8">
               Je m’appelle Agnès Scotto Di Perta. C'est dans l'enfance que le dessin s'est offert à moi 
                 tel un cadeau qui m'a permis d'exprimer mes émotions 
@@ -64,9 +60,6 @@ export default function HomePage() {
             </div>
 
             <div className="order-1 md:order-2">
-              <h2 className="text-3xl font-bold mb-6">
-                Dolor Sit Amet
-              </h2>
 
               <p className="text-gray-600 leading-8">
                 Ma liberté retrouvée je prends des cours à l'atelier Mary
@@ -88,10 +81,6 @@ export default function HomePage() {
       <section className="max-w-7xl mx-auto px-6 py-20">
         <div className="grid md:grid-cols-2 gap-10 items-center">
           <div>
-            <h2 className="text-3xl font-bold mb-6">
-              Consectetur Adipisicing
-            </h2>
-
             <p className="text-gray-600 leading-8">
                Je dis merci à un aquarelliste renommé 
                 qui à la fin d'un atelier m’a chuchoté à l'oreille 

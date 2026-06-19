@@ -1,41 +1,18 @@
 const photos = [
   {
-    id: 1,
-    title: "Photo 1",
+    id:   1,
+    title: "LEO",
+    type:"Aquarelle",
+    dimensions :"40x50",
     image: "https://placehold.co/600x400",
-  },
-  {
-    id: 2,
-    title: "Photo 2",
-    image: "https://placehold.co/600x400",
-  },
-  {
-    id: 3,
-    title: "Photo 3",
-    image: "https://placehold.co/600x400",
-  },
-  {
-    id: 4,
-    title: "Photo 4",
-    image: "https://placehold.co/600x400",
-  },
-  {
-    id: 5,
-    title: "Photo 5",
-    image: "https://placehold.co/600x400",
-  },
-  {
-    id: 6,
-    title: "Photo 6",
-    image: "https://placehold.co/600x400",
-  },
+  }
 ];
 
 export default function GaleriePage() {
   return (
     <main className="max-w-7xl mx-auto px-6 py-16">
       <h1 className="text-4xl font-bold text-center mb-12">
-        Galerie Photos
+        Galerie de mes oeuvres
       </h1>
 
       <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
@@ -56,7 +33,7 @@ export default function GaleriePage() {
               </h2>
 
               <p className="mt-2 text-gray-600">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                {photo.type} - {photo.dimensions}
               </p>
             </div>
           </div>
