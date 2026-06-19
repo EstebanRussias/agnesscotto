@@ -1,4 +1,21 @@
+import Link from "next/link";
+import { events, formatDate } from "@/lib/events";
+
 export default function EvenementsPage() {
+  const today = new Date();
+  const prochaineExpo =
+    events
+      .filter((event) => new Date(event.dateFin) >= today)
+      .sort(
+        (a, b) =>
+          new Date(a.dateDebut).getTime() -
+          new Date(b.dateDebut).getTime()
+      )[0] || events[0];
+
+  const evenementsPrecedents = events.filter(
+    (event) => event.id !== prochaineExpo.id
+  );
+
   return (
     <main>
       {/* Hero */}
@@ -9,17 +26,19 @@ export default function EvenementsPage() {
           </p>
 
           <h1 className="text-5xl font-bold mb-6">
-            Exposition d'été 2026
+            {prochaineExpo.titre}
           </h1>
 
           <p className="text-xl text-gray-300 mb-8">
-            Retrouvez mes dernières œuvres lors d'une exposition
-            exceptionnelle.
+            {prochaineExpo.description}
           </p>
 
           <div className="flex flex-col md:flex-row justify-center gap-6 text-lg">
-            <span>📍 Bordeaux</span>
-            <span>📅 15 au 30 juillet 2026</span>
+            <span>📍 {prochaineExpo.lieu}</span>
+            <span>
+              📅 Du {formatDate(prochaineExpo.dateDebut)} au{" "}
+              {formatDate(prochaineExpo.dateFin)}
+            </span>
           </div>
         </div>
       </section>
@@ -28,81 +47,71 @@ export default function EvenementsPage() {
       <section className="max-w-7xl mx-auto px-6 py-20">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <img
-            src="https://placehold.co/800x600"
-            alt="Exposition"
+            src={prochaineExpo.img}
+            alt={prochaineExpo.titre}
             className="rounded-xl shadow-lg w-full"
           />
 
           <div>
             <h2 className="text-4xl font-bold mb-6">
-              Une nouvelle collection à découvrir
+              {prochaineExpo.titre}
             </h2>
 
             <p className="text-gray-600 leading-8 mb-6">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Doloribus quidem tempora quaerat, numquam nemo
-              accusantium laboriosam architecto.
+              {prochaineExpo.description}
             </p>
 
             <p className="text-gray-600 leading-8 mb-8">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Ipsam cupiditate illum autem rem libero reprehenderit.
+              Retrouvez cette exposition à {prochaineExpo.lieu} du{" "}
+              {formatDate(prochaineExpo.dateDebut)} au{" "}
+              {formatDate(prochaineExpo.dateFin)}.
             </p>
 
-            <button className="bg-black text-white px-6 py-3 rounded-lg hover:bg-neutral-800 transition">
+            <Link
+              href={`/evenements/${prochaineExpo.id}`}
+              className="inline-block bg-black text-white px-6 py-3 rounded-lg hover:bg-neutral-800 transition"
+            >
               En savoir plus
-            </button>
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* Événements à venir */}
+      {/* Événements précédents */}
       <section className="bg-gray-100 py-20 px-6">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl font-bold text-center mb-12">
-            Événements à venir
+            Événements précédents
           </h2>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                ville: "Bordeaux",
-                date: "15 juillet 2026",
-              },
-              {
-                ville: "Toulouse",
-                date: "10 septembre 2026",
-              },
-              {
-                ville: "Paris",
-                date: "5 novembre 2026",
-              },
-            ].map((event, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-xl shadow-md overflow-hidden"
+            {evenementsPrecedents.map((event) => (
+              <Link
+                key={event.id}
+                href={`/evenements/${event.id}`}
+                className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition block"
               >
                 <img
-                  src="https://placehold.co/600x400"
-                  alt={event.ville}
+                  src={event.img}
+                  alt={event.titre}
                   className="w-full h-52 object-cover"
                 />
 
                 <div className="p-6">
                   <h3 className="text-2xl font-semibold mb-2">
-                    {event.ville}
+                    {event.type} au {event.lieu}
                   </h3>
 
                   <p className="text-gray-600 mb-4">
-                    {event.date}
+                    Du {formatDate(event.dateDebut)} au{" "}
+                    {formatDate(event.dateFin)}
                   </p>
 
                   <p className="text-gray-500">
-                    Lorem ipsum dolor sit amet consectetur
-                    adipisicing elit.
+                    {event.description}
                   </p>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
