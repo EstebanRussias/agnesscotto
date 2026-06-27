@@ -99,7 +99,7 @@ export default function HomePage() {
 
           <div>
             <img
-              src="https://placehold.co/600x400"
+              src="/images/oeuvres/italie.jpg"
               alt="Section 3"
               className="rounded-xl shadow-lg w-full"
             />
