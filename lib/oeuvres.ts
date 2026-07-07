@@ -87,7 +87,42 @@ export const oeuvres: Oeuvre[] = [
     type: "Aquarelle",
     dimensions: "40x50",
     image: "/images/oeuvres/barque.jpg",
-  } 
+  },
+   {
+    id: 13,
+    title: "Quai d'un soir",
+    type: "Huille",
+    dimensions: "50x100",
+    image: "/images/oeuvres/quaiSoir.jpg",
+  },
+  {
+    id: 14,
+    title: " La corricella",
+    type: "Huille",
+    dimensions: "50x50",
+    image: "/images/oeuvres/corricella.jpg",
+  },
+  {
+    id: 15,
+    title: "Rencontre",
+    type: "Huille",
+    dimensions: "50x50",
+    image: "/images/oeuvres/rencontre.jpg",
+  }, 
+  {
+    id: 16,
+    title: "Vers lui",
+    type: "Huille",
+    dimensions: "60x60",
+    image: "/images/oeuvres/verslui.jpg",
+  },
+    {
+    id: 17,
+    title: "Fes",
+    type: "Huille",
+    dimensions: "60x60",
+    image: "/images/oeuvres/fes.jpg",
+  }   
 ];
 
 export function getOeuvreById(id: number): Oeuvre | undefined {
