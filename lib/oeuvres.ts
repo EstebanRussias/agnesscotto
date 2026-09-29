@@ -176,16 +176,16 @@ export const oeuvres: Oeuvre[] = [
 {
   id: 24,
   title: "Un soir",
-  type: "",
-  dimensions: "",
+  type: "Aquarelle",
+  dimensions: "40x50",
   image: "/images/oeuvres/un-soir.jpg",
 },
 {
   id: 25,
   title: "A Giverny",
-  type: "",
-  dimensions: "",
-  image: "/images/oeuvres/a-giverny.jpg",
+  type: "Aquarelle",
+  dimensions: "40x50",
+  image: "/images/oeuvres/giverny.jpg",
 },
 {
   id: 26,
